@@ -5,7 +5,7 @@ import Hero from './components/hero';
 import Features from './components/Features';
 import Doctors from './components/Doctors';
 import Footer from './components/Footer';
-
+import HowItWorks from './components/HowItWorks';
 // Import komponen AI (Otak utamanya)
 // Pastikan file AIScanner.jsx sudah berisi logika TensorFlow yang baru
 import AIScanner from './components/AIScanner';
@@ -22,14 +22,17 @@ export default function App() {
       {/* 3. Penjelasan Fitur */}
       <Features />
       
-      {/* 4. BAGIAN AI SCANNER (Memanggil file AIScanner.jsx) */}
+      {/* 4. Penjelasan Fitur */}
+      <HowItWorks />
+
+      {/* 5. BAGIAN AI SCANNER (Memanggil file AIScanner.jsx) */}
       {/* Di sinilah logika deteksi kulit yang asli berjalan */}
       <AIScanner />
       
-      {/* 5. Daftar Dokter */}
+      {/* 6. Daftar Dokter */}
       <Doctors />
       
-      {/* 6. Bagian Kaki Website */}
+      {/* 7. Bagian Kaki Website */}
       <Footer />
     </div>
   );

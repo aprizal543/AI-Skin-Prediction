@@ -2,6 +2,17 @@ import React from 'react';
 import { Activity, Camera } from 'lucide-react';
 
 const Hero = () => {
+  // Fungsi agar saat tombol diklik, halaman menggulir (scroll) dengan mulus
+  const scrollToSection = (e, id) => {
+    e.preventDefault(); // Mencegah perilaku default link agar bisa kita kontrol
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.warn(`Bagian dengan id '${id}' tidak ditemukan.`);
+    }
+  };
+
   return (
     <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-teal-50 to-white rounded-bl-[100px] opacity-50"></div>
@@ -17,15 +28,30 @@ const Hero = () => {
           <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
             Analisis kondisi kulit Anda dalam hitungan detik menggunakan teknologi Computer Vision yang telah divalidasi oleh dermatolog. Cepat, privat, dan akurat.
           </p>
+          
+          {/* --- BAGIAN TOMBOL DIPERBAIKI DI SINI --- */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#scan" className="inline-flex justify-center items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition shadow-xl shadow-teal-600/20">
+            {/* Tombol 1: Ke Scanner */}
+            <a 
+              href="#scan" 
+              onClick={(e) => scrollToSection(e, 'scan')}
+              className="inline-flex justify-center items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition shadow-xl shadow-teal-600/20"
+            >
               <Camera size={20} />
               Mulai Analisis
             </a>
-            <button className="inline-flex justify-center items-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition">
+            
+            {/* Tombol 2: Ke Cara Kerja (Diubah dari <button> ke <a>) */}
+            <a 
+              href="#how-it-works" 
+              onClick={(e) => scrollToSection(e, 'how-it-works')}
+              className="inline-flex justify-center items-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition cursor-pointer"
+            >
               Pelajari Cara Kerja
-            </button>
+            </a>
           </div>
+          {/* ---------------------------------------- */}
+
           <div className="flex items-center gap-4 text-sm text-slate-500 pt-4">
             <div className="flex -space-x-2">
               {[1,2,3,4].map((i) => (
@@ -44,19 +70,6 @@ const Hero = () => {
               alt="Dermatology AI Interface" 
               className="rounded-2xl w-full h-[400px] object-cover"
             />
-{/* 
-<div className="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-white/50 shadow-lg">
-  <div className="flex items-center justify-between mb-2">
-    <span className="text-sm font-semibold text-slate-700">Status Analisis</span>
-    <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Selesai</span>
-  </div>
-  <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-    <div className="bg-teal-500 h-full w-[92%]"></div>
-  </div>
-  <p className="text-xs text-slate-500 mt-2">Tingkat Akurasi 92% • Dermatitis Ringan</p>
-</div>
-*/}
-
           </div>
           {/* Decorative Circles */}
           <div className="absolute -top-10 -right-10 w-64 h-64 bg-teal-100 rounded-full blur-3xl opacity-50 -z-10"></div>
