@@ -1,0 +1,7 @@
+  const CLASSES = [
+    'Blackheads', 
+    'Cyst', 
+    'Papules', 
+    'Pustules',
+    'Whiteheads'
+  ];
