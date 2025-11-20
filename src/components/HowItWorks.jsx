@@ -27,26 +27,26 @@ const HowItWorks = () => {
 
   return (
     <section id="how-it-works" className="py-20 bg-slate-50 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">Bagaimana Cara Kerjanya?</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900">Bagaimana Cara Kerjanya?</h2>
+          <p className="max-w-2xl mx-auto text-slate-600">
             Deteksi dini kesehatan kulit kini bisa dilakukan sendiri dari rumah hanya dengan 4 langkah mudah.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 relative">
+        <div className="relative grid gap-8 md:grid-cols-4">
           {/* Garis penghubung (Hanya tampil di layar Desktop) */}
           <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
 
           {steps.map((step, index) => (
             <div key={index} className="relative flex flex-col items-center text-center group">
               {/* Lingkaran Icon */}
-              <div className="w-24 h-24 bg-white border-4 border-teal-50 rounded-full flex items-center justify-center text-teal-600 mb-6 shadow-sm group-hover:scale-110 group-hover:border-teal-200 transition duration-300 z-10">
+              <div className="z-10 flex items-center justify-center w-24 h-24 mb-6 text-teal-600 transition duration-300 bg-white border-4 rounded-full shadow-sm border-teal-50 group-hover:scale-110 group-hover:border-teal-200">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="mb-2 text-xl font-bold text-slate-900">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600">{step.desc}</p>
             </div>
           ))}
         </div>
